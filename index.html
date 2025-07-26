@@ -817,6 +817,96 @@
             font-size: 0.9rem;
             color: var(--light);
         }
+        /* New Process Flow Styles */
+.process-flow {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 30px 20px;
+    min-width: 200px;
+    z-index: 1;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--gold);
+    color: var(--navy-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.step-content {
+    background: rgba(17, 34, 64, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    height: 100%;
+}
+
+.process-step h4 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.process-step p {
+    font-size: 1rem;
+    color: var(--light);
+}
+
+/* Connecting lines */
+.process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 2px;
+    background: var(--gold);
+    z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .process-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .process-step {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 40px;
+    }
+    
+    .process-step:not(:last-child)::after {
+        top: auto;
+        bottom: -20px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 2px;
+        height: 40px;
+    }
+}
 
         /* Payment Section */
         .payment {
@@ -1633,44 +1723,49 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline" id="timeline">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Efficient Process</h2>
-                <p>How we deliver premium academic solutions with remarkable speed</p>
+    <!-- Replace the entire timeline section with this fixed code -->
+<section class="timeline" id="timeline">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Efficient Process</h2>
+            <p>How we deliver premium academic solutions with remarkable speed</p>
+        </div>
+        
+        <div class="process-flow">
+            <div class="process-step fade-in">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Initial Consultation</h4>
+                    <p>We discuss your project requirements, deadlines, and specific needs to create a customized plan.</p>
+                </div>
             </div>
             
-            <div class="timeline-container">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h4>Initial Consultation</h4>
-                        <p>We discuss your project requirements, deadlines, and specific needs to create a customized plan.</p>
-                    </div>
+            <div class="process-step fade-in">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Research & Drafting</h4>
+                    <p>Our experts conduct thorough research and create a comprehensive draft following academic standards.</p>
                 </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h4>Research & Drafting</h4>
-                        <p>Our experts conduct thorough research and create a comprehensive draft following academic standards.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step fade-in">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Quality Review</h4>
+                    <p>Your work undergoes rigorous editing, proofreading, and plagiarism checking by our quality team.</p>
                 </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h4>Quality Review</h4>
-                        <p>Your work undergoes rigorous editing, proofreading, and plagiarism checking by our quality team.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h4>Delivery & Feedback</h4>
-                        <p>We deliver your completed work ahead of schedule and incorporate any requested revisions.</p>
-                    </div>
+            </div>
+            
+            <div class="process-step fade-in">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Delivery & Feedback</h4>
+                    <p>We deliver your completed work ahead of schedule and incorporate any requested revisions.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Team Section -->
     <section class="team" id="team">
@@ -2104,7 +2199,7 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.timeline-item, .stat-box').forEach(item => {
+        document.querySelectorAll('.process-step, .stat-box').forEach(item => {
             observer.observe(item);
         });
         
