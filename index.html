@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroggs Research Consultancy | Academic Excellence Since 2015</title>
+    <title>Scroggs Research Consultancy | Academic Excellence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy-blue: #0a192f;
             --light-navy: #112240;
             --accent: #64ffda;
-            --gold: #FFD700;
+            --gold: #D4AF37;
+            --gold-light: #E6C567;
             --light: #ccd6f6;
             --white: #ffffff;
-            --transition: all 0.25s ease-in-out;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * {
@@ -25,34 +26,48 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0f1f 0%, #0a192f 100%);
+            color: var(--light);
+            line-height: 1.7;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(10, 25, 47, 0.8) 0%, rgba(10, 15, 31, 0.9) 100%);
+            z-index: -1;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+            color: var(--white);
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* Header Styles */
         header {
-            background-color: var(--navy-blue);
+            background-color: rgba(10, 25, 47, 0.95);
             padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .header-container {
@@ -64,6 +79,25 @@
         .logo {
             display: flex;
             align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
         }
 
         .logo h1 {
@@ -71,6 +105,9 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin: 0;
+            background: linear-gradient(to right, var(--gold-light) 0%, var(--white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo span {
@@ -84,6 +121,7 @@
 
         .nav-links li {
             margin-left: 2rem;
+            position: relative;
         }
 
         .nav-links a {
@@ -92,36 +130,79 @@
             font-weight: 500;
             transition: var(--transition);
             font-size: 1.1rem;
+            padding: 8px 5px;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .mobile-menu {
             display: none;
             color: var(--white);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000') center/cover no-repeat;
-            color: var(--white);
-            padding: 10rem 0 6rem;
-            text-align: center;
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.2;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 40px 0;
         }
 
         .hero h2 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
             color: var(--white);
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h2 span {
+            background: linear-gradient(to right, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
         .hero p {
@@ -130,60 +211,104 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--light);
+        }
+
+        .typewriter {
+            display: inline-block;
+            position: relative;
+            min-height: 60px;
+        }
+
+        .typewriter-text {
+            display: inline;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .typewriter-text::after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            color: var(--gold);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .hero-btns {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             text-align: center;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 2px solid transparent;
+            min-width: 200px;
         }
 
         .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--navy-blue);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: #52d4ba;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
         }
 
         .btn-outline {
-            border: 2px solid var(--accent);
-            color: var(--accent);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
         }
 
         .btn-outline:hover {
-            background-color: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         /* Section Common Styles */
         section {
-            padding: 6rem 0;
+            padding: 8rem 0;
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             position: relative;
             display: inline-block;
-            padding-bottom: 1rem;
+            padding-bottom: 1.2rem;
         }
 
         .section-title h2::after {
@@ -192,170 +317,493 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: var(--accent);
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 1.2rem;
+            color: var(--light);
         }
 
         /* About Section */
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.2;
+        }
+
         .about-content {
             display: flex;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-text {
             flex: 1;
+            background: rgba(17, 34, 64, 0.6);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold) 0%, var(--gold-light) 100%);
         }
 
         .about-text h3 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--navy-blue);
+            color: var(--white);
+            position: relative;
+        }
+
+        .about-text h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .about-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .stat-box {
             text-align: center;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem 1.5rem;
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
         }
 
         .stat-box i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
         }
 
         .stat-box h4 {
-            font-size: 2.5rem;
-            color: var(--navy-blue);
-            margin: 0;
+            font-size: 3rem;
+            color: var(--gold);
+            margin: 0 0 0.5rem;
+            transition: var(--transition);
+        }
+
+        .stat-box:hover h4 {
+            color: var(--gold-light);
+        }
+
+        .stat-box p {
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        .globe-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin-top: 2rem;
+        }
+
+        .globe {
+            width: 250px;
+            height: 250px;
+            background: url('https://cdn.pixabay.com/photo/2012/04/14/16/26/world-34414_960_720.png') center/cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(100, 255, 218, 0.3);
+            animation: rotateGlobe 60s infinite linear;
+        }
+
+        .globe-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold);
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rotateGlobe {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Services Section */
         .services {
-            background-color: #f0f5ff;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9) 0%, rgba(10, 15, 31, 0.95) 100%);
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 8px;
+        .services-slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .service-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: rgba(17, 34, 64, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
         }
 
         .service-icon {
-            height: 200px;
-            background-color: var(--navy-blue);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--gold) 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
 
         .service-icon i {
-            font-size: 4rem;
-            color: var(--accent);
+            font-size: 3.5rem;
+            color: var(--white);
         }
 
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Achievements Section */
-        .achievements-content {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .achievements-list {
-            flex: 1;
-        }
-
-        .achievement-item {
-            display: flex;
-            margin-bottom: 2rem;
-        }
-
-        .achievement-icon {
-            margin-right: 1.5rem;
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
-
-        .achievement-text h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .publications {
-            flex: 1;
-            background: var(--navy-blue);
-            color: var(--light);
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .publications h3 {
-            color: var(--accent);
+        .service-slide h3 {
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
+            color: var(--gold);
         }
 
-        .publication-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(204, 214, 246, 0.2);
+        .service-slide p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
         }
 
-        .publication-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .service-price {
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin: 1rem 0;
+            font-weight: 700;
         }
 
-        .publication-item a {
-            color: var(--accent);
-            text-decoration: none;
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.3);
+            cursor: pointer;
             transition: var(--transition);
         }
 
-        .publication-item a:hover {
-            text-decoration: underline;
+        .slider-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(17, 34, 64, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: var(--gold);
+            color: var(--navy-blue);
+        }
+
+        .slider-prev {
+            left: 20px;
+        }
+
+        .slider-next {
+            right: 20px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: linear-gradient(to bottom, rgba(10, 15, 31, 0.95) 0%, rgba(10, 25, 47, 0.9) 100%);
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 20px 50px;
+            position: relative;
+            width: 50%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border: 4px solid var(--navy-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -52px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -52px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9) 0%, rgba(10, 15, 31, 0.95) 100%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .member-img {
+            height: 250px;
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-img::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .member-img i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info .role {
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .member-info p {
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        /* Payment Section */
+        .payment {
+            background: linear-gradient(to bottom, rgba(10, 15, 31, 0.95) 0%, rgba(10, 25, 47, 0.9) 100%);
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .payment-method {
+            background: rgba(17, 34, 64, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 200px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .payment-method:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .payment-method i {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-method h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .payment-method p {
+            font-size: 1.1rem;
+            color: var(--light);
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000') center/cover no-repeat;
-            color: var(--white);
-        }
-
-        .contact .section-title h2 {
-            color: var(--white);
+            background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000') center/cover no-repeat;
+            position: relative;
         }
 
         .contact-container {
@@ -365,12 +813,29 @@
 
         .contact-info {
             flex: 1;
+            background: rgba(17, 34, 64, 0.7);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .contact-info h3 {
-            color: var(--accent);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact-info h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
         }
 
         .contact-details {
@@ -379,76 +844,121 @@
 
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
         }
 
         .contact-item i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-right: 1rem;
-            width: 40px;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-right: 1.5rem;
+            min-width: 40px;
+        }
+
+        .contact-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-light);
+        }
+
+        .contact-text p {
+            font-size: 1.1rem;
+            color: var(--light);
         }
 
         .contact-form {
             flex: 1;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(17, 34, 64, 0.7);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .contact-form h3 {
-            color: var(--navy-blue);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact-form h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: var(--navy-blue);
+            margin-bottom: 0.8rem;
+            color: var(--gold-light);
             font-weight: 500;
         }
 
         .form-control {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 1rem 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: var(--transition);
+            background: rgba(10, 25, 47, 0.5);
+            color: var(--light);
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy-blue);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
         }
 
         /* Footer */
         footer {
-            background-color: var(--light-navy);
-            color: var(--light);
-            padding: 3rem 0 1rem;
+            background: linear-gradient(to bottom, rgba(10, 15, 31, 0.95) 0%, rgba(5, 10, 20, 1) 100%);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section {
@@ -457,9 +967,22 @@
         }
 
         .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
         }
 
         .footer-links {
@@ -467,84 +990,126 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-links a {
             color: var(--light);
             text-decoration: none;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a i {
+            color: var(--gold);
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--gold);
             margin-left: 5px;
+        }
+
+        .footer-links a:hover i {
+            transform: translateX(5px);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: rgba(204, 214, 246, 0.1);
-            color: var(--accent);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
             transition: var(--transition);
             text-decoration: none;
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
-            background: var(--accent);
+            background: var(--gold);
             color: var(--navy-blue);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(204, 214, 246, 0.1);
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 3.5rem;
+            }
+        }
+
         @media (max-width: 992px) {
             .about-content,
-            .achievements-content,
             .contact-container {
                 flex-direction: column;
             }
-
-            .hero h2 {
-                font-size: 2.8rem;
+            
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 30px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 26px;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: -100%;
                 background: var(--navy-blue);
                 width: 100%;
                 flex-direction: column;
                 align-items: center;
-                padding: 2rem 0;
+                padding: 3rem 0;
                 transition: var(--transition);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                gap: 2rem;
             }
 
             .nav-links.active {
                 left: 0;
-            }
-
-            .nav-links li {
-                margin: 1.5rem 0;
             }
 
             .mobile-menu {
@@ -552,7 +1117,7 @@
             }
 
             .hero h2 {
-                font-size: 2.3rem;
+                font-size: 2.8rem;
             }
 
             .hero p {
@@ -560,29 +1125,39 @@
             }
 
             .section-title h2 {
-                font-size: 2.3rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
+                font-size: 2.5rem;
             }
         }
 
         @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
             .hero-btns {
                 flex-direction: column;
             }
-
+            
             .btn {
                 width: 100%;
             }
-
-            .hero {
-                padding: 8rem 0 4rem;
+            
+            .service-slide {
+                padding: 3rem 1.5rem;
             }
-
-            section {
-                padding: 4rem 0;
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .slider-prev {
+                left: 10px;
+            }
+            
+            .slider-next {
+                right: 10px;
             }
         }
     </style>
@@ -591,14 +1166,18 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>SRC<span>.</span></h1>
-            </div>
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>Scroggs<span>Research</span></h1>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#timeline">Process</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu">
@@ -610,11 +1189,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h2>Scroggs Research Consultancy</h2>
-            <p>Your trusted partner in academic excellence and research solutions since 2015</p>
+            <h2>Premier <span>Academic Research</span> Consultancy</h2>
+            <p>Your trusted partner in <span class="typewriter"><span class="typewriter-text" id="typewriter"></span></span></p>
             <div class="hero-btns">
-                <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                <a href="#services" class="btn btn-primary"><i class="fas fa-book-open"></i> Explore Services</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-headset"></i> Get Consultation</a>
             </div>
         </div>
     </section>
@@ -623,12 +1202,14 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Us</h2>
+                <h2>About Our Consultancy</h2>
+                <p>With over a decade of excellence in academic research and writing, we've helped thousands achieve their educational goals</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Excellence in Academic Research Since 2015</h3>
+                    <h3>Global Academic Excellence Since 2015</h3>
                     <p>Scroggs Research Consultancy (SRC) is a premier academic consultancy based in Zimbabwe, specializing in providing comprehensive research and writing solutions to students and professionals worldwide. With over a decade of experience, we've established ourselves as leaders in the academic support industry.</p>
+                    <p>Our global clientele spans across six continents, with partnerships in prestigious institutions including MSU, UZ, BUSE, and Reformed Church University. We've successfully collaborated with clients from USA, China, Canada, South Africa, Zambia, Russia, Nigeria, and Botswana.</p>
                     <p>Our team of expert researchers, writers, and consultants are dedicated to helping you achieve your academic and professional goals through tailored services that meet international standards.</p>
                     
                     <div class="about-stats">
@@ -648,6 +1229,17 @@
                             <p>Countries Served</p>
                         </div>
                     </div>
+                    
+                    <div class="globe-container">
+                        <div class="globe">
+                            <div class="globe-marker" style="top: 45%; left: 25%;" title="USA"></div>
+                            <div class="globe-marker" style="top: 35%; left: 50%;" title="UK"></div>
+                            <div class="globe-marker" style="top: 40%; left: 70%;" title="China"></div>
+                            <div class="globe-marker" style="top: 60%; left: 50%;" title="South Africa"></div>
+                            <div class="globe-marker" style="top: 55%; left: 65%;" title="Australia"></div>
+                            <div class="globe-marker" style="top: 50%; left: 45%;" title="Russia"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -657,125 +1249,175 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
+                <h2>Our Premium Services</h2>
+                <p>Comprehensive academic solutions tailored to your specific needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <div class="service-content">
+            
+            <div class="services-slider">
+                <div class="slider-container">
+                    <div class="service-slide">
+                        <div class="service-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
                         <h3>Academic Writing</h3>
-                        <p>Professional writing services for assignments, papers, dissertations, theses, articles, policy briefs for diploma, degree, masters, and Ph.D students.</p>
+                        <p>Professional writing services for assignments, papers, dissertations, theses, articles, policy briefs for diploma, degree, masters, and Ph.D students. Our expert writers ensure top quality, original content tailored to your requirements.</p>
+                        <div class="service-price">From $25/page</div>
+                        <a href="#contact" class="btn btn-outline">Order Now</a>
                     </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="service-content">
+                    
+                    <div class="service-slide">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
                         <h3>Research Consultancy</h3>
-                        <p>Expert research guidance and support across humanities, social sciences, education, social work, and development studies.</p>
+                        <p>Expert research guidance and support across humanities, social sciences, education, social work, and development studies. We help you develop research proposals, methodologies, and data analysis strategies.</p>
+                        <div class="service-price">From $150/project</div>
+                        <a href="#contact" class="btn btn-outline">Get Consultation</a>
                     </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="service-content">
+                    
+                    <div class="service-slide">
+                        <div class="service-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
                         <h3>Publication Services</h3>
-                        <p>Publication services for books, journal articles in peer-reviewed databases (Scopus, Web of Science, Google Scholar) with publication in 3-7 days.</p>
+                        <p>Publication services for books, journal articles in peer-reviewed databases (Scopus, Web of Science, Google Scholar) with publication in 3-7 days. We handle the entire publication process from formatting to submission.</p>
+                        <div class="service-price">From $300/article</div>
+                        <a href="#contact" class="btn btn-outline">Publish Now</a>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Web Development</h3>
-                        <p>Professional development of websites and landing pages to establish your online presence.</p>
+                <div class="slider-arrow slider-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow slider-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Efficient Process</h2>
+                <p>How we deliver premium academic solutions with remarkable speed</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Initial Consultation</h4>
+                        <p>We discuss your project requirements, deadlines, and specific needs to create a customized plan.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Professional Services</h3>
-                        <p>CV writing, business proposals, online class assistance, and exam support for various disciplines.</p>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Research & Drafting</h4>
+                        <p>Our experts conduct thorough research and create a comprehensive draft following academic standards.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heartbeat"></i>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Quality Review</h4>
+                        <p>Your work undergoes rigorous editing, proofreading, and plagiarism checking by our quality team.</p>
                     </div>
-                    <div class="service-content">
-                        <h3>Health Courses Support</h3>
-                        <p>Specialized support for health and social care courses (UK, Ireland, Canada NQ level 5), nursing, and accounting.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>Delivery & Feedback</h4>
+                        <p>We deliver your completed work ahead of schedule and incorporate any requested revisions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section class="achievements" id="achievements">
+    <!-- Team Section -->
+    <section class="team" id="team">
         <div class="container">
             <div class="section-title">
-                <h2>Achievements & Publications</h2>
+                <h2>Our Expert Team</h2>
+                <p>Meet the professionals dedicated to your academic success</p>
             </div>
-            <div class="achievements-content">
-                <div class="achievements-list">
-                    <div class="achievement-item">
-                        <div class="achievement-icon">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <div class="achievement-text">
-                            <h4>Academic Qualifications</h4>
-                            <p>BSc in Social Work (BUSE), Masters in Social Work & Community Development (University of Zambia), Mphil (Zimbabwe Open University)</p>
-                        </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user-tie"></i>
                     </div>
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="achievement-text">
-                            <h4>Professional Recognition</h4>
-                            <p>Distinguished Researcher | Certificate in Artificial Intelligence | Member of International Research Associations</p>
-                        </div>
-                    </div>
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="achievement-text">
-                            <h4>University Partnerships</h4>
-                            <p>Collaborations with MSU, UZ, BUSE, Reformed Church University and other prestigious institutions</p>
-                        </div>
+                    <div class="member-info">
+                        <h3>Benevolence Nyamugada</h3>
+                        <span class="role">Lead Writer & Researcher</span>
+                        <p>Specializes in dissertations, articles, and publications with 8+ years experience. Holds a PhD in Social Sciences.</p>
                     </div>
                 </div>
                 
-                <div class="publications">
-                    <h3>Featured Publications</h3>
-                    
-                    <div class="publication-item">
-                        <h4>ICT Implementation for Teaching and Learning</h4>
-                        <p>Academic World Journal of Humanities and Social Sciences</p>
-                        <a href="https://academicworldjournal.com/p/volume-2-january-march-2025_29.html" target="_blank">Read Publication</a>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user-edit"></i>
                     </div>
-                    
-                    <div class="publication-item">
-                        <h4>Research in Vocational Training Colleges</h4>
-                        <p>A case study of Mupfure Self Help College</p>
-                        <a href="http://doi.org/10.64229/p3do3m45" target="_blank">DOI: 10.64229/p3do3m45</a>
+                    <div class="member-info">
+                        <h3>Robert N.</h3>
+                        <span class="role">Editor & Proofreader</span>
+                        <p>Responsible for quality assurance, plagiarism checking, and ensuring academic integrity. MA in Linguistics.</p>
                     </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>James M.</h3>
+                        <span class="role">Research Moderator</span>
+                        <p>Oversees research methodology, data analysis, and ensures compliance with academic standards. PhD in Education.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Methods</h2>
+                <p>Convenient and secure payment options for clients worldwide</p>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4>Zimbabwe</h4>
+                    <p>Ecocash, InnBucks, Mukuru, ZIPIT, USD Cash</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-globe-africa"></i>
+                    <h4>Africa</h4>
+                    <p>Mobile Money, Bank Transfer, Flutterwave</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fab fa-paypal"></i>
+                    <h4>International</h4>
+                    <p>PayPal, Wise, Western Union, Bank Transfer</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Credit Cards</h4>
+                    <p>Visa, MasterCard, American Express</p>
                 </div>
             </div>
         </div>
@@ -786,6 +1428,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
+                <p>Reach out for a consultation or to start your next project</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
@@ -795,7 +1438,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <div>
+                            <div class="contact-text">
                                 <h4>Location</h4>
                                 <p>Based in Zimbabwe</p>
                             </div>
@@ -803,7 +1446,7 @@
                         
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <div>
+                            <div class="contact-text">
                                 <h4>Phone & Telegram</h4>
                                 <p>+263 776 005 489</p>
                             </div>
@@ -811,11 +1454,18 @@
                         
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <div>
+                            <div class="contact-text">
                                 <h4>Email</h4>
                                 <p>scroggsresearch@gmail.com</p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:scroggsresearch@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 
@@ -849,7 +1499,7 @@
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn-submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -874,22 +1524,22 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#achievements">Achievements</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Academic Writing</a></li>
-                        <li><a href="#">Research Consultancy</a></li>
-                        <li><a href="#">Publication Services</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Professional Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Academic Writing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Research Consultancy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Publication Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Professional Services</a></li>
                     </ul>
                 </div>
             </div>
@@ -930,28 +1580,107 @@
             this.reset();
         });
         
-        // Add active class to navigation on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+        // Typing animation
+        const typewriter = document.getElementById('typewriter');
+        const texts = ["academic excellence", "research solutions", "professional writing", "global education"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function type() {
+            const currentText = texts[textIndex];
             
-            let current = '';
+            if (isDeleting) {
+                // Remove char
+                typewriter.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                // Add char
+                typewriter.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
+            // Check if text is complete
+            if (!isDeleting && charIndex === currentText.length) {
+                // Pause at end
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next text
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            setTimeout(type, typingSpeed);
+        }
+        
+        // Start typing animation
+        setTimeout(type, 1000);
+        
+        // Services slider
+        const sliderContainer = document.querySelector('.slider-container');
+        const slides = document.querySelectorAll('.service-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        
+        function updateSlider() {
+            sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        }, 5000);
+        
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
                 }
             });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.timeline-item, .stat-box').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Globe markers animation
+        const markers = document.querySelectorAll('.globe-marker');
+        markers.forEach(marker => {
+            marker.style.opacity = '0';
+            setTimeout(() => {
+                marker.style.transition = 'opacity 1s ease-in-out';
+                marker.style.opacity = '1';
+            }, 500);
         });
     </script>
 </body>
