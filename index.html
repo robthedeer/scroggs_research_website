@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroggs Research Consultancy | Academic Excellence Since 2015</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-blue: #0a192f;
+            --light-navy: #112240;
+            --accent: #64ffda;
+            --gold: #FFD700;
+            --light: #ccd6f6;
+            --white: #ffffff;
+            --transition: all 0.25s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000') center/cover no-repeat;
+            color: var(--white);
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--navy-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: #52d4ba;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy-blue);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-box i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f0f5ff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            height: 200px;
+            background-color: var(--navy-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon i {
+            font-size: 4rem;
+            color: var(--accent);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Achievements Section */
+        .achievements-content {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .achievements-list {
+            flex: 1;
+        }
+
+        .achievement-item {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-icon {
+            margin-right: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .achievement-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publications {
+            flex: 1;
+            background: var(--navy-blue);
+            color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .publications h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(204, 214, 246, 0.2);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .publication-item a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .publication-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000') center/cover no-repeat;
+            color: var(--white);
+        }
+
+        .contact .section-title h2 {
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 1rem;
+            width: 40px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form h3 {
+            color: var(--navy-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy-blue);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-navy);
+            color: var(--light);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            margin-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(204, 214, 246, 0.1);
+            color: var(--accent);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--navy-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(204, 214, 246, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .achievements-content,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: var(--navy-blue);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>SRC<span>.</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Scroggs Research Consultancy</h2>
+            <p>Your trusted partner in academic excellence and research solutions since 2015</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Excellence in Academic Research Since 2015</h3>
+                    <p>Scroggs Research Consultancy (SRC) is a premier academic consultancy based in Zimbabwe, specializing in providing comprehensive research and writing solutions to students and professionals worldwide. With over a decade of experience, we've established ourselves as leaders in the academic support industry.</p>
+                    <p>Our team of expert researchers, writers, and consultants are dedicated to helping you achieve your academic and professional goals through tailored services that meet international standards.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <i class="fas fa-globe-africa"></i>
+                            <h4>10+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>2000+</h4>
+                            <p>Dissertations Completed</p>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-users"></i>
+                            <h4>15+</h4>
+                            <p>Countries Served</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Academic Writing</h3>
+                        <p>Professional writing services for assignments, papers, dissertations, theses, articles, policy briefs for diploma, degree, masters, and Ph.D students.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Research Consultancy</h3>
+                        <p>Expert research guidance and support across humanities, social sciences, education, social work, and development studies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Publication Services</h3>
+                        <p>Publication services for books, journal articles in peer-reviewed databases (Scopus, Web of Science, Google Scholar) with publication in 3-7 days.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Development</h3>
+                        <p>Professional development of websites and landing pages to establish your online presence.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Services</h3>
+                        <p>CV writing, business proposals, online class assistance, and exam support for various disciplines.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Health Courses Support</h3>
+                        <p>Specialized support for health and social care courses (UK, Ireland, Canada NQ level 5), nursing, and accounting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Achievements & Publications</h2>
+            </div>
+            <div class="achievements-content">
+                <div class="achievements-list">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h4>Academic Qualifications</h4>
+                            <p>BSc in Social Work (BUSE), Masters in Social Work & Community Development (University of Zambia), Mphil (Zimbabwe Open University)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h4>Professional Recognition</h4>
+                            <p>Distinguished Researcher | Certificate in Artificial Intelligence | Member of International Research Associations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h4>University Partnerships</h4>
+                            <p>Collaborations with MSU, UZ, BUSE, Reformed Church University and other prestigious institutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publications">
+                    <h3>Featured Publications</h3>
+                    
+                    <div class="publication-item">
+                        <h4>ICT Implementation for Teaching and Learning</h4>
+                        <p>Academic World Journal of Humanities and Social Sciences</p>
+                        <a href="https://academicworldjournal.com/p/volume-2-january-march-2025_29.html" target="_blank">Read Publication</a>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Research in Vocational Training Colleges</h4>
+                        <p>A case study of Mupfure Self Help College</p>
+                        <a href="http://doi.org/10.64229/p3do3m45" target="_blank">DOI: 10.64229/p3do3m45</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about our services? Ready to start your next project? Reach out to us and our team will get back to you promptly.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Based in Zimbabwe</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone & Telegram</h4>
+                                <p>+263 776 005 489</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>scroggsresearch@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="writing">Academic Writing</option>
+                                <option value="research">Research Consultancy</option>
+                                <option value="publication">Publication Services</option>
+                                <option value="web">Web Development</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SRC Consultancy</h3>
+                    <p>Providing exceptional academic and research solutions since 2015. We're committed to helping students and professionals achieve their educational goals.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:scroggsresearch@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Academic Writing</a></li>
+                        <li><a href="#">Research Consultancy</a></li>
+                        <li><a href="#">Publication Services</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Professional Services</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Scroggs Research Consultancy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Add active class to navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
