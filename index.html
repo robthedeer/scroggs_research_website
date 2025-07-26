@@ -1332,6 +1332,21 @@
                 font-size: 1.6rem;
             }
 
+            /* Timeline Mobile Fix */
+            .timeline-container::before {
+                left: 25px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 21px;
+            }
+
             .timeline-content {
                 padding: 1.5rem;
             }
@@ -1577,6 +1592,26 @@
                         <div class="service-price">From $300/article</div>
                         <a href="#contact" class="btn btn-outline">Publish Now</a>
                     </div>
+                    
+                    <div class="service-slide">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Data Analysis Services</h3>
+                        <p>Professional qualitative and quantitative data analysis for organizations. We transform complex data into actionable insights using advanced statistical methods and visualization techniques.</p>
+                        <div class="service-price">From $200/project</div>
+                        <a href="#contact" class="btn btn-outline">Request Service</a>
+                    </div>
+                    
+                    <div class="service-slide">
+                        <div class="service-icon">
+                            <i class="fas fa-poll"></i>
+                        </div>
+                        <h3>Data Collection Services</h3>
+                        <p>Comprehensive data collection services for surveys, interviews, and focus groups. We design and implement effective data collection strategies tailored to your research needs.</p>
+                        <div class="service-price">From $150/project</div>
+                        <a href="#contact" class="btn btn-outline">Start Collection</a>
+                    </div>
                 </div>
                 
                 <div class="slider-arrow slider-prev">
@@ -1588,6 +1623,8 @@
                 
                 <div class="slider-nav">
                     <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
                     <div class="slider-dot"></div>
                     <div class="slider-dot"></div>
                 </div>
@@ -1651,7 +1688,7 @@
                     <div class="member-info">
                         <h3>Benevolence Nyamugada</h3>
                         <span class="role">Lead Writer & Researcher</span>
-                        <p>Specializes in dissertations, articles, and publications with 8+ years experience. Holds a PhD in Social Sciences.</p>
+                        <p>He holds a BSc in Social Work (BUSE university), MSc in Social Work & Community Development (University of Zambia), Mphil at Zimbabwe Open University, Distinguished Researcher. Has 4 publications.</p>
                     </div>
                 </div>
                 
@@ -1662,7 +1699,7 @@
                     <div class="member-info">
                         <h3>Robert N.</h3>
                         <span class="role">Editor & Proofreader</span>
-                        <p>Responsible for quality assurance, plagiarism checking, and ensuring academic integrity. MA in Linguistics.</p>
+                        <p>Responsible for quality assurance, plagiarism checking, and ensuring academic integrity. MA in Linguistics with 7 years of experience in academic editing.</p>
                     </div>
                 </div>
                 
@@ -1673,7 +1710,7 @@
                     <div class="member-info">
                         <h3>James M.</h3>
                         <span class="role">Research Moderator</span>
-                        <p>Oversees research methodology, data analysis, and ensures compliance with academic standards. PhD in Education.</p>
+                        <p>Oversees research methodology, data analysis, and ensures compliance with academic standards. PhD in Education with expertise in quantitative research methods.</p>
                     </div>
                 </div>
             </div>
@@ -1886,6 +1923,8 @@
                                 <option value="research">Research Consultancy</option>
                                 <option value="publication">Publication Services</option>
                                 <option value="web">Web Development</option>
+                                <option value="data">Data Analysis</option>
+                                <option value="survey">Data Collection</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
@@ -1934,8 +1973,8 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Academic Writing</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Research Consultancy</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Publication Services</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Web Development</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Professional Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Analysis</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Collection</a></li>
                     </ul>
                 </div>
             </div>
